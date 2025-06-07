@@ -122,6 +122,6 @@ fajas-colombianas/
 ---
 
 ## **📄 Licencia**
-MIT © [Jaime Lechuga](mailto:l21550308@chihuahua2.tecnm.mx) - 2023
+MIT © [Jaime Lechuga](mailto:l21550308@chihuahua2.tecnm.mx) - 2025
 ```
 ---
