@@ -1,6 +1,3 @@
-Aquí está tu README mejorado y corregido, con los ajustes solicitados y algunas mejoras adicionales:
-
-```markdown
 # **Fajas Colombianas - Ecommerce** 💍👗
 
 Bienvenido al repositorio del sistema ecommerce especializado en **fajas colombianas, vestidos de novia y accesorios para bodas**.
