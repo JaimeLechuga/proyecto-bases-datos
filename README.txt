@@ -1,170 +1,158 @@
-﻿# **Fajas Colombianas - Ecommerce** 🛍️
+Gracias por la explicación, ahora tengo una mejor idea del enfoque real de tu proyecto. El README puede mejorarse para **reflejar claramente que el objetivo no es un CRUD genérico**, sino una solución enfocada en ventas basadas en preferencias de los usuarios mediante una **lista de deseos**.
 
-
-Bienvenido al repositorio del sistema de ecommerce especializado en **fajas colombianas, vestidos de novia y accesorios**. Este proyecto incluye:
-
-
-- **Frontend**: Aplicación React con interfaz moderna
-- **Backend**: API REST con Node.js y Express
-- **Base de Datos**: MySQL con estructura normalizada
-
+Aquí tienes una **versión ajustada del README.md** que resalta esto de forma profesional y clara:
 
 ---
 
+````markdown
+# **Fajas Colombianas - Ecommerce** 💍👗
 
-## **🚀 Características Principales**
-- **Gestión de productos** (CRUD completo)
-- **Lista de deseos** interactiva
-- **Filtros por categorías**
-- **Sistema de inventario**
-- **Procedimientos almacenados y triggers** en MySQL
+Bienvenido al repositorio del sistema ecommerce especializado en **fajas colombianas, vestidos de novia y accesorios para bodas**.
 
+Este proyecto fue desarrollado como una solución práctica para negocios que requieren conocer las **preferencias de sus clientes**, especialmente en productos donde la decisión de compra suele hacerse presencialmente.
 
 ---
 
+## **🎯 Propósito del Proyecto**
+
+Más que un simple CRUD, este sistema está centrado en una **lista de deseos interactiva** que permite identificar los productos más deseados por los clientes. Ideal para negocios de moda nupcial donde las clientas desean probar múltiples productos antes de decidirse.
+
+El objetivo principal es que el sistema ayude a:
+
+- **Visualizar tendencias de deseo**
+- **Priorizar el inventario y la atención al cliente**
+- **Facilitar la gestión de productos y stock**
+
+---
+
+## **📦 Características Clave**
+
+- ✅ Agregar productos desde el frontend (manual)
+- 💖 Agregar/eliminar productos a la lista de deseos
+- 📊 Visualización automática del catálogo desde la base de datos
+- 🧠 Uso de procedimientos y triggers para manejar stock y auditoría
+- 📁 Estructura conectada: **MySQL + Express + React**
+
+---
 
 ## **🛠️ Tecnologías Utilizadas**
-| **Área**       | **Tecnologías**                          |
-|----------------|------------------------------------------|
-| Frontend       | React, Axios, React Router, CSS Modules  |
-| Backend        | Node.js, Express, MySQL2                 |
-| Base de Datos  | MySQL (Triggers, Procedimientos, Funciones) |
-| Herramientas   | Git, Postman, MySQL Workbench            |
-
+| Área         | Tecnologías                                |
+|--------------|---------------------------------------------|
+| Frontend     | React, Axios, React Router, CSS Modules     |
+| Backend      | Node.js, Express, MySQL2                    |
+| Base de Datos| MySQL (Triggers, Procedimientos, Funciones) |
+| Herramientas | Git, Postman, MySQL Workbench               |
 
 ---
-
 
 ## **⚙️ Configuración del Entorno**
 
-
-### **Requisitos Previos**
+### Requisitos
 - Node.js v16+
 - MySQL 8.0+
 - Git
 
-
-### **Instalación**
+### Instalación
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/fajas-colombianas.git
+   git clone https://github.com/JaimeLechuga/proyecto-bases-datos.git
    cd fajas-colombianas
-   ```
+````
 
+2. Configura la base de datos:
 
-2. **Configura la base de datos**:
-   - Importa el script SQL desde `database/schema.sql`
-   - Configura las variables en `backend/config/db.js`
+   * Importa `database/schema.sql` en tu servidor MySQL.
+   * Edita el archivo `backend/config/db.js` y reemplaza `'tuusuario'` y `'tucontra'` con tus credenciales locales.
 
+3. Instala dependencias:
 
-3. **Instala dependencias**:
    ```bash
-   # Backend
    cd backend
    npm install
 
-
-   # Frontend
    cd ../frontend
    npm install
    ```
 
-
 ---
 
+## **🚀 Ejecución**
 
-## **🚦 Ejecución**
-1. **Inicia el backend**:
+1. Inicia el backend:
+
    ```bash
    cd backend
    npm start
    ```
-   > El servidor estará en `http://localhost:5001`
 
+   > Disponible en `http://localhost:5001`
 
-2. **Inicia el frontend**:
+2. Inicia el frontend:
+
    ```bash
    cd frontend
    npm start
    ```
-   > La aplicación se abrirá en `http://localhost:3000`
 
+   > Abre automáticamente en `http://localhost:3000`
 
 ---
 
-
 ## **📂 Estructura del Proyecto**
+
 ```
 fajas-colombianas/
 ├── backend/
-│   ├── controllers/       # Lógica de endpoints
+│   ├── config/            # Conexión a MySQL
+│   ├── controllers/       # Lógica de la API
 │   ├── database/          # Scripts SQL
-│   ├── models/            # Modelos de datos
 │   ├── routes/            # Rutas de la API
 │   └── app.js             # Servidor principal
 │
 ├── frontend/
-│   ├── public/            # Assets estáticos
 │   ├── src/
-│   │   ├── components/    # Componentes React
-│   │   ├── pages/         # Vistas principales
-│   │   ├── services/      # Conexión con API
-│   │   └── App.js         # Punto de entrada
-│
-└── README.md              # Este archivo
+│   │   ├── components/    # Componentes reutilizables
+│   │   ├── pages/         # Páginas principales
+│   │   ├── services/      # Comunicación con API
+│   │   └── App.js         # App principal
+└── README.md
 ```
 
+---
+
+## **🔗 Funcionalidad de API Principal**
+
+| Método | Endpoint          | Función                           |
+| ------ | ----------------- | --------------------------------- |
+| GET    | `/api/productos`  | Lista todos los productos         |
+| POST   | `/api/productos`  | Agrega un nuevo producto          |
+| GET    | `/api/deseos`     | Muestra lista de deseos           |
+| POST   | `/api/deseos`     | Agrega producto a lista de deseos |
+| DELETE | `/api/deseos/:id` | Quita producto de la lista        |
 
 ---
 
+## **💡 Extras Técnicos**
 
-## **🔍 Endpoints Clave (API)**
-| **Método** | **Endpoint**               | **Descripción**                |
-|------------|----------------------------|--------------------------------|
-| GET        | `/api/productos`           | Obtener todos los productos    |
-| POST       | `/api/productos`           | Crear nuevo producto           |
-| GET        | `/api/deseos`              | Listar productos deseados      |
-| DELETE     | `/api/deseos/:id`          | Eliminar de lista de deseos    |
-
+* **Base de datos prellenada** con más de 60 productos
+* **Triggers de auditoría** para registrar cambios
+* **Procedimientos SQL** para control de inventario
+* **Función SQL** para calcular descuentos
 
 ---
-
-
-## **💡 Extras Incluidos**
-- **Base de datos pre-poblada** con 60 productos de ejemplo
-- **Triggers** para auditoría de cambios
-- **Procedimientos almacenados** para gestión de stock
-- **Función SQL** para cálculos de descuentos
-
-
----
-
-
-## **🤝 Contribución**
-1. Haz fork del proyecto
-2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`)
-3. Haz commit de tus cambios (`git commit -m 'Agrega X funcionalidad'`)
-4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
-
----
-
 
 ## **📄 Licencia**
+
 MIT © Jaime 2023
 
+---
+
+## **📬 Contacto**
+
+📧 [l21550308@chihuahua2.tecnm.mx](mailto:l21550308@chihuahua2.tecnm.mx)
 
 ---
 
-
-## **📧 Contacto**
-¿Preguntas? Contacta al desarrollador:  
-📩 l21550308@chihuahua2.tecnm.mx 
-
-
-
+````
 
 ---
-
-
