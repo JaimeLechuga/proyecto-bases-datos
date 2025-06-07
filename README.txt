@@ -168,4 +168,3 @@ MIT © Jaime 2023
 ---
 
 
-> ✨ **Tip**: Usa [Postman](https://www.postman.com/) para probar los endpoints del API
