@@ -1,10 +1,3 @@
-Gracias por la explicación, ahora tengo una mejor idea del enfoque real de tu proyecto. El README puede mejorarse para **reflejar claramente que el objetivo no es un CRUD genérico**, sino una solución enfocada en ventas basadas en preferencias de los usuarios mediante una **lista de deseos**.
-
-Aquí tienes una **versión ajustada del README.md** que resalta esto de forma profesional y clara:
-
----
-
-````markdown
 # **Fajas Colombianas - Ecommerce** 💍👗
 
 Bienvenido al repositorio del sistema ecommerce especializado en **fajas colombianas, vestidos de novia y accesorios para bodas**.
