@@ -1,151 +1,130 @@
+Aquí está tu README mejorado y corregido, con los ajustes solicitados y algunas mejoras adicionales:
+
+```markdown
 # **Fajas Colombianas - Ecommerce** 💍👗
 
 Bienvenido al repositorio del sistema ecommerce especializado en **fajas colombianas, vestidos de novia y accesorios para bodas**.
 
-Este proyecto fue desarrollado como una solución práctica para negocios que requieren conocer las **preferencias de sus clientes**, especialmente en productos donde la decisión de compra suele hacerse presencialmente.
+## **⚠️ Nota Importante sobre Puertos**
+El proyecto usa por defecto el puerto **5001** para el backend debido a que:
+- macOS suele usar el puerto 5000 para servicios del sistema (Control Center)
+- Si necesitas cambiar el puerto, modifica `backend/app.js` y `frontend/src/services/api.js`
 
 ---
 
 ## **🎯 Propósito del Proyecto**
-
-Más que un simple CRUD, este sistema está centrado en una **lista de deseos interactiva** que permite identificar los productos más deseados por los clientes. Ideal para negocios de moda nupcial donde las clientas desean probar múltiples productos antes de decidirse.
-
-El objetivo principal es que el sistema ayude a:
-
-- **Visualizar tendencias de deseo**
-- **Priorizar el inventario y la atención al cliente**
-- **Facilitar la gestión de productos y stock**
-
----
-
-## **📦 Características Clave**
-
-- ✅ Agregar productos desde el frontend (manual)
-- 💖 Agregar/eliminar productos a la lista de deseos
-- 📊 Visualización automática del catálogo desde la base de datos
-- 🧠 Uso de procedimientos y triggers para manejar stock y auditoría
-- 📁 Estructura conectada: **MySQL + Express + React**
+Sistema con **lista de deseos interactiva** para identificar preferencias de clientes en moda nupcial, permitiendo:
+- 📊 Visualizar tendencias de productos deseados
+- 📦 Gestionar inventario inteligentemente
+- 💡 Mejorar la experiencia de compra presencial
 
 ---
 
 ## **🛠️ Tecnologías Utilizadas**
 | Área         | Tecnologías                                |
 |--------------|---------------------------------------------|
-| Frontend     | React, Axios, React Router, CSS Modules     |
-| Backend      | Node.js, Express, MySQL2                    |
-| Base de Datos| MySQL (Triggers, Procedimientos, Funciones) |
-| Herramientas | Git, Postman, MySQL Workbench               |
+| **Frontend** | React, Axios, React Router                 |
+| **Backend**  | Node.js, Express, MySQL2                   |
+| **Database** | MySQL (Triggers, Procedimientos)           |
+| **Herramientas** | Git, Postman, MySQL Workbench          |
 
 ---
 
-## **⚙️ Configuración del Entorno**
+## **⚡ Instalación Rápida**
 
-### Requisitos
-- Node.js v16+
-- MySQL 8.0+
-- Git
+```bash
+# 1. Clonar repositorio
+git clone https://github.com/JaimeLechuga/proyecto-bases-datos.git
+cd fajas-colombianas
 
-### Instalación
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/JaimeLechuga/proyecto-bases-datos.git
-   cd fajas-colombianas
-````
+# 2. Configurar MySQL (Requisito: Tener MySQL instalado)
+mysql -u root -p < database/schema.sql
 
-2. Configura la base de datos:
+# 3. Configurar credenciales (editar archivo)
+nano backend/config/db.js  # Actualiza usuario/contraseña
 
-   * Importa `database/schema.sql` en tu servidor MySQL.
-   * Edita el archivo `backend/config/db.js` y reemplaza `'tuusuario'` y `'tucontra'` con tus credenciales locales.
-
-3. Instala dependencias:
-
-   ```bash
-   cd backend
-   npm install
-
-   cd ../frontend
-   npm install
-   ```
+# 4. Instalar dependencias
+cd backend && npm install
+cd ../frontend && npm install
+```
 
 ---
 
 ## **🚀 Ejecución**
+```bash
+# Terminal 1 (Backend - Puerto 5001)
+cd backend
+node app.js
 
-1. Inicia el backend:
+# Terminal 2 (Frontend - Puerto 3000)
+cd ../frontend
+npm start
+```
 
-   ```bash
-   cd backend
-   npm start
-   ```
+**Acceso:**
+- Backend: http://localhost:5001
+- Frontend: http://localhost:3000
 
-   > Disponible en `http://localhost:5001`
+---
 
-2. Inicia el frontend:
+## **🔧 Solución de Problemas Comunes**
 
-   ```bash
-   cd frontend
-   npm start
-   ```
+### **Error de puerto en uso**
+```bash
+# Verificar procesos usando el puerto 5001
+sudo lsof -i :5001
 
-   > Abre automáticamente en `http://localhost:3000`
+# Si está ocupado, cambiar puerto en:
+# 1. backend/app.js (línea del listen)
+# 2. frontend/src/services/api.js (baseURL)
+```
+
+### **Error de conexión a MySQL**
+Verifica que en `backend/config/db.js` tengas:
+```javascript
+{
+  host: 'localhost',
+  user: 'root',       // Usuario de tu MySQL
+  password: 'tu_contraseña',  // Tu contraseña
+  database: 'fajas_colombianas'
+}
+```
 
 ---
 
 ## **📂 Estructura del Proyecto**
-
 ```
 fajas-colombianas/
 ├── backend/
-│   ├── config/            # Conexión a MySQL
-│   ├── controllers/       # Lógica de la API
-│   ├── database/          # Scripts SQL
-│   ├── routes/            # Rutas de la API
-│   └── app.js             # Servidor principal
-│
+│   ├── config/
+│   │   └── db.js       # Configuración de conexión MySQL
+│   ├── database/
+│   │   ├── schema.sql  # Estructura + datos iniciales
+│   │   └── triggers.sql # Triggers adicionales
 ├── frontend/
-│   ├── src/
-│   │   ├── components/    # Componentes reutilizables
-│   │   ├── pages/         # Páginas principales
-│   │   ├── services/      # Comunicación con API
-│   │   └── App.js         # App principal
-└── README.md
+│   └── src/
+│       └── services/
+│           └── api.js  # Configuración de Axios
 ```
 
 ---
 
-## **🔗 Funcionalidad de API Principal**
-
+## **🔌 Endpoints Clave**
 | Método | Endpoint          | Función                           |
-| ------ | ----------------- | --------------------------------- |
-| GET    | `/api/productos`  | Lista todos los productos         |
-| POST   | `/api/productos`  | Agrega un nuevo producto          |
-| GET    | `/api/deseos`     | Muestra lista de deseos           |
-| POST   | `/api/deseos`     | Agrega producto a lista de deseos |
-| DELETE | `/api/deseos/:id` | Quita producto de la lista        |
-
----
-
-## **💡 Extras Técnicos**
-
-* **Base de datos prellenada** con más de 60 productos
-* **Triggers de auditoría** para registrar cambios
-* **Procedimientos SQL** para control de inventario
-* **Función SQL** para calcular descuentos
+|--------|-------------------|-----------------------------------|
+| POST   | `/api/productos`  | Agregar producto (ejemplo JSON):  
+```json
+{
+  "nombre": "Faja Postparto",
+  "precio": 75.50,
+  "stock": 20,
+  "categoria_id": 1
+}
+```
 
 ---
 
 ## **📄 Licencia**
-
-MIT © Jaime 2023
-
----
-
-## **📬 Contacto**
-
-📧 [l21550308@chihuahua2.tecnm.mx](mailto:l21550308@chihuahua2.tecnm.mx)
-
----
-
-````
-
+MIT © [Jaime Lechuga](mailto:l21550308@chihuahua2.tecnm.mx) - 2023
+```
 ---
